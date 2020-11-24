@@ -1,0 +1,27 @@
+{
+  "name": "@aiham-aburafaa/input-number-with-comma",
+  "version": "0.0.1",
+  "description": "A simple component with option to add commas to your input type number",
+  "author": "aiham-aburafaa",
+  "repository": {
+    "type": "git",
+    "directory": "https://github.com/AihamAbuRafaa/input-number-with-comma.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AihamAbuRafaa/input-number-with-comma/issues"
+  },
+  "homepage": "https://github.com/AihamAbuRafaa/input-number-with-comma",
+  "peerDependencies": {
+    "@angular/common": "^10.2.0",
+    "@angular/core": "^10.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "main": "karma.conf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "license": "ISC"
+}
