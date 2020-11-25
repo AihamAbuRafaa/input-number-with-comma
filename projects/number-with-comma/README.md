@@ -1,24 +1,24 @@
-# NumberWithComma
+# InputNumberWithComma
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
-## Code scaffolding
+## Description
+A simple component with option to add commas to your input from type number
 
-Run `ng generate component component-name --project number-with-comma` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project number-with-comma`.
-> Note: Don't forget to add `--project number-with-comma` or else it will be added to the default project in your `angular.json` file. 
+## How to use
+1- import NumberWithCommaModule in your app.module : 
 
-## Build
+import { NumberWithCommaModule } from '@aiham-aburafaa/input-number-with-comma';
 
-Run `ng build number-with-comma` to build the project. The build artifacts will be stored in the `dist/` directory.
+imports: [
+	NumberWithCommaModule
+]
 
-## Publishing
 
-After building your library with `ng build number-with-comma`, go to the dist folder `cd dist/number-with-comma` and run `npm publish`.
+2- Just use it in your html code :
+                <number-input [name]="'aNumber'"
+                [readonly]="false"
+                [(model)]="model"
+                ></number-input>
 
-## Running unit tests
-
-Run `ng test number-with-comma` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3- Enjoy :)

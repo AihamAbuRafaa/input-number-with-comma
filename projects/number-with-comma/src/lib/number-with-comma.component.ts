@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'number-input',
   template: `
-                <input [name]="name"  [readonly]="readonly" [(ngModel)]="model"
+                <input [name]="name"   [readonly]="readonly" [(ngModel)]="model" (ngModelChange)="numberChanged()"
                *ngIf="focus" (mouseout)="focus=false" type="number">
-            <div *ngIf="!focus" (click)="focus=false"
+            <div *ngIf="!focus" (click)="focus=true"
               (mouseout)="focus=false">{{addCommas(model)}}</div>
   `,
   styles: [
@@ -14,7 +14,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class NumberWithCommaComponent implements OnInit {
   @Input() name :string;
   @Input() readonly :boolean;
-  model
+  @Input() model :number;
+  @Output() modelChange = new EventEmitter<number>();
   focus=false;
   constructor() { }
 
@@ -30,6 +31,10 @@ export class NumberWithCommaComponent implements OnInit {
     else {
       return 0;
     }
+  }
+
+  numberChanged(){
+    this.modelChange.emit(this.model)
   }
 
 }
