@@ -1,6 +1,6 @@
 {
   "name": "@aiham-aburafaa/input-number-with-comma",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A simple component with option to add commas to your input type number",
   "author": "aiham-aburafaa",
   "repository": {
@@ -22,6 +22,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "angular",
+    "input",
+    "comma",
+    "input type number"
+  ],
   "license": "ISC"
 }
