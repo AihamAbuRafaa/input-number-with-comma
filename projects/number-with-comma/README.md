@@ -16,9 +16,10 @@ imports: [
 
 
 2- Just use it in your html code :
-                <number-input [name]="'aNumber'"
-                [readonly]="false"
-                [(model)]="model"
-                ></number-input>
+
+<number-input [name]="'aNumber'"
+[readonly]="false"
+[(model)]="model"
+></number-input>
 
 3- Enjoy :)

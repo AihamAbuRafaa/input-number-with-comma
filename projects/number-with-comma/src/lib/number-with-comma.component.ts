@@ -4,9 +4,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   selector: 'number-input',
   template: `
                 <input [name]="name"   [readonly]="readonly" [(ngModel)]="model" (ngModelChange)="numberChanged()"
-               *ngIf="focus" (mouseout)="focus=false" type="number">
+               *ngIf="focus" (focusout)="focus=false" type="number">
             <div *ngIf="!focus" (click)="focus=true"
-              (mouseout)="focus=false">{{addCommas(model)}}</div>
+              (focusout)="focus=false">{{addCommas(model)}}</div>
   `,
   styles: [
   ]
