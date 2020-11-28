@@ -1,25 +1,34 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
   selector: 'number-input',
   template: `
-                <input [name]="name"   [readonly]="readonly" [(ngModel)]="model" (ngModelChange)="numberChanged()"
+                <input [name]="name"   [readonly]="readonly" [(ngModel)]="value"
                *ngIf="focus" (focusout)="focus=false" type="number">
             <div *ngIf="!focus" (click)="focus=true"
-              (focusout)="focus=false">{{addCommas(model)}}</div>
+              (focusout)="focus=false">{{addCommas(val)}}</div>
   `,
   styles: [
+  ],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => NumberWithCommaComponent),
+      multi: true
+    }
   ]
 })
-export class NumberWithCommaComponent implements OnInit {
-  @Input() name :string;
-  @Input() readonly :boolean;
-  @Input() model :number;
-  @Output() modelChange = new EventEmitter<number>();
-  focus=false;
+export class NumberWithCommaComponent implements OnInit, ControlValueAccessor {
+  @Input() name: string;
+  @Input() readonly: boolean;
+
+  onChange: any = () => { }
+  onTouch: any = () => { }
+  val = 0
+  focus = false;
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   addCommas(number) {
@@ -33,8 +42,23 @@ export class NumberWithCommaComponent implements OnInit {
     }
   }
 
-  numberChanged(){
-    this.modelChange.emit(this.model)
+
+  set value(val) {
+    this.val = val
+    this.onChange(val)
+    this.onTouch(val)
+  }
+
+
+  writeValue(value: any) {
+    this.value = value
+  }
+
+  registerOnChange(fn: any) {
+    this.onChange = fn
+  }
+  registerOnTouched(fn: any) {
+    this.onTouch = fn
   }
 
 }

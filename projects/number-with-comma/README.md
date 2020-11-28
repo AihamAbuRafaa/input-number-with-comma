@@ -17,9 +17,9 @@ imports: [
 
 2- Just use it in your html code :
 
-<number-input [name]="'aNumber'"
+<number-input name="aNumber" [name]="'aNumber'"
 [readonly]="false"
-[(model)]="model"
+[(ngModel)]="model"
 ></number-input>
 
 3- Enjoy :)
