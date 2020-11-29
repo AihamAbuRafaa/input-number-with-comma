@@ -6,7 +6,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
                 <input [name]="name"   [readonly]="readonly" [(ngModel)]="value"
                *ngIf="focus" (focusout)="focus=false" type="number">
             <div *ngIf="!focus" (click)="focus=true"
-              (focusout)="focus=false">{{addCommas(val)}}</div>
+              (focusout)="focus=false">{{val ? val.toLocaleString() : 0}}</div>
   `,
   styles: [
   ],
@@ -29,17 +29,6 @@ export class NumberWithCommaComponent implements OnInit, ControlValueAccessor {
   constructor() { }
 
   ngOnInit() {
-  }
-
-  addCommas(number) {
-    if (number) {
-      var parts = number.toString().split(".");
-      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      return parts.join(".");
-    }
-    else {
-      return 0;
-    }
   }
 
 
